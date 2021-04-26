@@ -1,0 +1,320 @@
+.ipd-comp-chart {
+  margin-bottom: $xl-spacing;
+}
+
+.ipd-comp-chart__desktop {
+  display: none;
+}
+
+.ipd-comp-chart__mobile-container {
+  @include maxContainer;
+}
+
+.ipd-comp-chart__header, .ipd-comp-chart__table-feature {
+  display: flex;
+  margin: 0 -10px;
+  overflow: hidden;
+  border-bottom: solid 1px $grey05;
+}
+
+.ipd-comp-chart__table-text, .ipd-comp-chart__header-spacer {
+  width: 50%;
+  padding: 0 10px;
+
+  sup {
+    font-size: 70%;
+    vertical-align: top;
+    top: -5px;
+    position: relative;
+    font-weight: inherit;
+  }
+}
+
+.ipd-comp-chart__header {
+  @include body01($weight: 500);
+  
+}
+
+.ipd-comp-chart__table-feature {
+  @include body03();
+  padding: $xs-spacing;
+}
+
+.ipd-comp-chart__header-product, .ipd-comp-chart__table-product {
+  text-align: center;
+}
+
+.ipd-comp-chart__header-product {
+  border-top: 2px solid $brand-green;
+  padding: $r-spacing 0;
+  margin: 0 10px;
+  width: 25%;
+
+  &--desktop {
+    border-color: $grey01;
+  }
+}
+
+.ipd-comp-chart__table-product {
+  font-weight: 500;
+  width: 25%;
+  padding: 0 10px;
+}
+
+.ipd-comp-chart__table-expandable {
+  overflow: hidden;
+  height: 100%;
+  transition: all 0.3s ease-out;
+}
+
+.ipd-comp-chart__more, .ipd-comp-chart__more span {
+  margin-top: $r-spacing;
+  display: inline-block;
+  font-size: 1.1875rem;
+  text-decoration: none;
+  padding: 0;
+  border: none;
+  color: $blue03;
+  cursor: pointer;
+  outline: none;
+  background: none;
+
+  &:hover, &:focus {
+    text-decoration: underline;
+  }
+}
+
+.ipd-comp-chart__more span {
+  margin-top: 0;
+}
+
+.ipd-comp-chart__selector {
+  @include maxContainer;
+  display: flex;
+  list-style-type: none;
+  overflow-x: scroll;
+}
+
+.ipd-comp-chart__selector-wrapper {
+  position: relative;
+}
+
+.ipd-comp-chart__selector-magicline {
+  height: 2px;
+  background: $brand-green;
+  border-radius: 1px;
+  position: absolute;
+  bottom: 0%;
+  transition: left 0.2s $ease-quick, right 0.2s $ease-quick 0.2s;
+
+  &--right {
+    transition: left 0.2s $ease-quick 0.2s, right 0.2s $ease-quick;
+  }
+}
+
+.ipd-comp-chart__selector-container {
+  @include breakout;
+  background: $white;
+  position: relative;
+}
+
+.ipd-comp-chart__selector-item {
+  margin: 0;
+  
+  white-space: nowrap;
+}
+
+.ipd-comp-chart__selector-button {
+  padding: 0;
+  border: none;
+  background: none;
+  font-weight: 500;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+  color: $grey03;
+  padding: $xs-spacing 0;
+  margin: 0 $xs-spacing;
+
+  &--active {
+    color: $black;
+  }
+}
+
+.ipd-comp-chart__columns-wrapper {
+  @include breakout;
+  background: $grey08;
+  list-style-type: none;
+
+}
+
+.ipd-comp-chart__columns {
+  @include maxContainer;
+  overflow-x: hidden;
+  display: flex;
+  padding-top: $r-spacing;
+  padding-bottom: $r-spacing;
+}
+
+.ipd-comp-chart__columns-slider {
+  display: flex;
+  white-space: nowrap;
+}
+
+
+.ipd-comp-chart__column {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 83.333%;
+  flex: 1 0 83.333%;
+  margin-right: $r-spacing;
+  background: $white;
+  padding: $r-spacing;
+  white-space: normal;
+  @include box-shadow;
+  border-radius: 4px;
+  transition: transform 0.3s $ease-slow;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    background: rgba(255,255,255,0.8);
+    left: 0;
+    top: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+
+  &--active {
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.ipd-comp-chart__column-item {
+  margin-bottom: $s-spacing;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+.ipd-comp-chart__column-text {
+
+  &--fade {
+    color: $grey05;
+  }
+}
+
+.ipd-comp-chart__column-item-icon {
+  flex: 0 0 15px;
+  width: 15px;
+  margin-right: $xs-spacing;
+}
+
+.ipd-comp-chart__column-item-check, .ipd-comp-chart__column-item-info {
+  width: 12px;
+  height: auto;
+}
+
+.ipd-comp-chart__column-item-info {
+  path {
+    fill: $grey04;
+  }
+}
+
+
+.ipd-comp-chart__column-item-tip {
+  position: absolute;
+  bottom: 100%;
+  left: -18px;
+  z-index: 8;
+
+  &::after {
+      content: '';
+      display: block;
+      width: 0; 
+      height: 0; 
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid $brand-dark-grey;
+      position: relative;
+      left: 20px;
+      bottom: 0;
+  }
+}
+
+.ipd-comp-chart__column-item-tip-text {
+  background: $brand-dark-grey;
+  color: $white;
+  padding: $xs-spacing;
+  border-radius: 4px;
+  @include box-shadow;
+  line-height: 1.2;
+}
+
+@media (min-width: $tablet-breakpoint) {
+  .ipd-comp-chart__desktop {
+    display: block;
+  }
+
+  .ipd-comp-chart__mobile {
+    display: none;
+  }
+}
+
+@media (min-width: $tablet-breakpoint) {
+  .ipd-comp-chart {
+    margin-bottom: $xxl-spacing;
+  }
+  
+}
+
+@media (min-width: $desktop-breakpoint) {
+  .ipd-comp-chart {
+    margin-bottom: $xxxl-spacing;
+  }
+}
+
+@supports (display: grid) {
+
+  .ipd-comp-chart__header, .ipd-comp-chart__table-feature {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-gap: 20px;
+    border-bottom: solid 1px $grey05;
+    margin: 0;
+  }
+
+    .ipd-comp-chart__header-product {
+      margin: 0;
+      width: auto;
+    }
+
+  .ipd-comp-chart__table-product {
+    font-weight: 500;
+    width: auto;
+    padding: 0;
+  }
+
+  .ipd-comp-chart__table-text {
+    width: auto;
+    padding: 0;
+  }
+}
+
+.tooltip-enter, .tooltip-to {
+  opacity: 0;
+  transform: translateY(5px);
+  
+}
+
+.tooltip-enter-active, .tooltip-fade-leave-active {
+  transition: opacity 0.3s $ease-quick, transform 0.3s $ease-quick;
+}
